@@ -33,10 +33,10 @@ const deleteCustomer = (customerId) => {
   // Chamando modal
   swalWithBootstrapButtons.fire({
     title: "Tem certeza que deseja excluir o cliente?",
-    text: "Você não conseguira reverter isso!",
+    text: "Você não poderá reverter isso!",
     icon: "warning",
     showCancelButton: true,
-    confirmButtonText: "Sim, delete!",
+    confirmButtonText: "Sim, exclua!",
     cancelButtonText: "Não, cancele!",
     reverseButtons: true
   }).then((result) => {
@@ -48,7 +48,7 @@ const deleteCustomer = (customerId) => {
         //sucesso ao excluir
         .then((response) => {
           swalWithBootstrapButtons.fire({
-            title: "Deletado!",
+            title: "Excluído!",
             text: "Cliente excluído com sucesso!",
             icon: "success"
           })
@@ -64,7 +64,7 @@ const deleteCustomer = (customerId) => {
     } else {
       swalWithBootstrapButtons.fire({
         title: "Cancelado",
-        text: "O cliente NÃO foi excluído",
+        text: "O cliente não foi excluído",
         icon: "error"
       })
     }
