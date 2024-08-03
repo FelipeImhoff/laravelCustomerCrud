@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:latest
+    container_name: laravel-db
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: ob3twWctA4
+      POSTGRES_DB: laravel_db
+    ports:
+      - "5432:5432"

@@ -1,0 +1,229 @@
+* {
+  text-overflow: ellipsis;
+  overflow: hidden
+}
+
+.index {
+  .page-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 1em;
+    align-items: flex-end;
+
+    .add-customer button {
+      background-color: #333;
+      padding: 0.5em 1.7em;
+      margin: 0 0.1em 0.1em 0;
+      border: 0.16em solid rgb(255, 255, 255);
+      border-radius: 2em;
+      text-decoration: none;
+      color: #ffffff;
+      text-shadow: 0 0.04em 0.04em rgba(255, 255, 255, 0.253);
+      text-align: center;
+      transition: all 0.2s;
+    }
+
+    button:hover {
+      color: black;
+      background-color: rgb(255, 255, 255);
+    }
+  }
+
+  .table-header {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .table-line {
+    display: flex;
+    justify-content: space-around;
+    height: 15%;
+    padding: 0.75em 0;
+    align-items: center;
+    border-bottom: 1px solid black;
+  }
+
+  .table-col1 {
+    width: 10%;
+
+    img {
+      border-radius: 2em;
+    }
+  }
+
+  .table-col2 {
+    width: 15%;
+  }
+
+  .table-col3 {
+    width: 20%;
+
+  }
+
+  .table-col4 {
+    display: flex;
+    justify-content: space-around;
+    width: 10%;
+  }
+
+  .table-col5 {
+    display: flex;
+    justify-content: center;
+    width: 10%;
+    flex-wrap: wrap;
+
+    button {
+      background-color: #333;
+      padding: 0.25em 1.4em;
+      margin: 0 0.1em 0.1em 0;
+      border: 0.16em solid rgb(255, 255, 255);
+      border-radius: 2em;
+      text-decoration: none;
+      color: #ffffff;
+      text-shadow: 0 0.04em 0.04em rgba(255, 255, 255, 0.253);
+      text-align: center;
+      transition: all 0.2s;
+    }
+
+    button:hover {
+      color: black;
+      background-color: rgb(255, 255, 255);
+    }
+  }
+
+  .table-pages {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0.5em;
+
+    .btn {
+      background-color: #333;
+      padding: 0.25em 1.2em;
+      margin: 0 0.1em 0.1em 0;
+      border: 0.16em solid rgb(255, 255, 255);
+      border-radius: 2em;
+      text-decoration: none;
+      color: #ffffff;
+      text-shadow: 0 0.04em 0.04em rgba(255, 255, 255, 0.253);
+      text-align: center;
+      transition: all 0.2s;
+    }
+
+    button:hover {
+      color: black;
+      background-color: rgb(255, 255, 255);
+    }
+
+    .btn-selected {
+      color: black;
+      background-color: rgb(255, 255, 255);
+      padding: 0.25em 1.2em;
+      margin: 0 0.1em 0.1em 0;
+      border: 0.16em solid rgb(255, 255, 255);
+      border-radius: 2em;
+      text-decoration: none;
+      text-shadow: 0 0.04em 0.04em rgba(255, 255, 255, 0.253);
+      text-align: center;
+      transition: all 0.2s;
+    }
+  }
+}
+
+.form {
+  .title {
+    padding: 1em;
+  }
+
+  .content {
+    .fields {
+      display: flex;
+      flex-wrap: wrap;
+
+      .form-field {
+        padding: 1em 0.5em;
+
+        .input {
+          width: clamp(120px, 50vw, 420px);
+          height: 2.5rem;
+          padding: 0 1.25rem;
+          border: none;
+          border-radius: 2px;
+          margin: 0.625rem auto;
+          transition: all 250ms;
+          color: #333;
+          font-size: 1em;
+
+          @media (min-width: 768px) {
+            width: clamp(120px, 35vw, 420px);
+          }
+
+          &:focus {
+            outline: none;
+            border-top-color: rgba(0, 0, 0, 0.1);
+          }
+
+
+          &:focus+.label,
+          &:not(:placeholder-shown)+.label {
+            transform: translateY(-4.50rem) scale(1);
+            color: gray;
+          }
+
+          &::placeholder {
+            display: none;
+            color: transparent;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+          }
+        }
+
+        .label {
+          font-size: 1rem;
+          color: grey;
+          display: block;
+          transform: translate(1.25rem, -2.5rem);
+          transform-origin: 0 0;
+          transition: all 500ms;
+          -webkit-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
+          pointer-events: none;
+        }
+      }
+
+    }
+
+    .image-field {
+      img {
+        height: 125px;
+        padding: 0.25em;
+      }
+    }
+
+  }
+
+  .footer {
+    display: flex;
+    justify-content: flex-end;
+    padding: 1em;
+
+    .btn {
+      background-color: #333;
+      padding: 0.5em 1.7em;
+      margin: 0 0.1em 0.1em 0;
+      border: 0.16em solid rgb(255, 255, 255);
+      border-radius: 2em;
+      text-decoration: none;
+      color: #ffffff;
+      text-shadow: 0 0.04em 0.04em rgba(255, 255, 255, 0.253);
+      text-align: center;
+      transition: all 0.2s;
+    }
+
+    button:hover {
+      color: black;
+      background-color: rgb(255, 255, 255);
+    }
+  }
+}
