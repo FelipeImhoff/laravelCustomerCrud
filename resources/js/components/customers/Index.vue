@@ -70,7 +70,7 @@ const changePage = (page) => {
         </button>
       </div>
     </div>
-    <div v-if='customers' class='table'>
+    <div class='table'>
       <div class='table-header'>
         <p class='table-col1'>Foto</p>
         <p class='table-col2'>Nome</p>
@@ -111,9 +111,6 @@ const changePage = (page) => {
           </button>
         </div>
       </div>
-    </div>
-    <div v-else>
-      Nenhum usuário encontrado
     </div>
   </div>
 </template>
