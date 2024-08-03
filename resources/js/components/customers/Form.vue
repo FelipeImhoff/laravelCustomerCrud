@@ -41,7 +41,13 @@ const createCustomer = (values, actions) => {
       router.push('/')
       toast.fire({
         icon: 'success',
-        title: 'Usuário adicionado com sucesso!'
+        title: 'Cliente adicionado com sucesso!'
+      })
+    })
+    .catch((error) => {
+      toast.fire({
+        icon: 'error',
+        title: 'Erro ao criar cliente'
       })
     })
 }
@@ -52,7 +58,13 @@ const updateCustomer = (values, actions) => {
       router.push('/')
       toast.fire({
         icon: 'success',
-        title: 'Usuário alterado com sucesso!'
+        title: 'Cliente alterado com sucesso!'
+      })
+    })
+    .catch((error) => {
+      toast.fire({
+        icon: 'error',
+        title: 'Erro ao alterar cliente'
       })
     })
 }
@@ -74,6 +86,19 @@ const handleFileChange = (e) => {
 
   reader.readAsDataURL(file)
 }
+
+const handlePhone = (event) => {
+  let input = event.target
+  form.phone = phoneMask(input.value)
+}
+
+const phoneMask = (value) => {
+  if (!value) return ''
+  value = value.replace(/\D/g, '')
+  value = value.replace(/(\d{2})(\d)/, '($1) $2')
+  value = value.replace(/(\d)(\d{4})$/, '$1-$2')
+  return value
+}
 </script>
 <template>
   <div class='form'>
@@ -92,11 +117,12 @@ const handleFileChange = (e) => {
           <label for='name' class='label'>Nome</label>
         </div>
         <div class='form-field'>
-          <input type='text' placeholder='E-mail' class='input' v-model='form.email'>
+          <input type='email' placeholder='E-mail' class='input' v-model='form.email'>
           <label for='email' class='label'>E-mail</label>
         </div>
         <div class='form-field'>
-          <input type='text' placeholder='Telefone' class='input' v-model='form.phone'>
+          <input @keyup='handlePhone' maxlength='15' type='tel' placeholder='Telefone' class='input'
+            v-model='form.phone'>
           <label for='phone' class='label'>Telefone</label>
         </div>
       </div>

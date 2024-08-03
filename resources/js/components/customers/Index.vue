@@ -20,14 +20,55 @@ const editCustomer = (customerId) => {
 }
 
 const deleteCustomer = (customerId) => {
-  axios.delete(`/api/customers/${customerId}`)
-    .then((response) => {
-      toast.fire({
-        icon: 'success',
-        title: 'Usuário excluído com sucesso!'
+
+  // Criando modal
+  const swalWithBootstrapButtons = Swal.mixin({
+    customClass: {
+      confirmButton: "btn btn-success",
+      cancelButton: "btn btn-danger"
+    },
+    buttonsStyling: true
+  })
+
+  // Chamando modal
+  swalWithBootstrapButtons.fire({
+    title: "Tem certeza que deseja excluir o cliente?",
+    text: "Você não conseguira reverter isso!",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonText: "Sim, delete!",
+    cancelButtonText: "Não, cancele!",
+    reverseButtons: true
+  }).then((result) => {
+    // Resultado: realmente era pra excluir?
+    // Se sim
+    if (result.isConfirmed) {
+      //tenta deletar cliente
+      axios.delete(`/api/customers/${customerId}`)
+        //sucesso ao excluir
+        .then((response) => {
+          swalWithBootstrapButtons.fire({
+            title: "Deletado!",
+            text: "Cliente excluído com sucesso!",
+            icon: "success"
+          })
+          getCustomers()
+          //erro ao excluir
+        }).catch((error) => {
+          toast.fire({
+            icon: 'error',
+            title: 'Erro ao excluir cliente'
+          })
+        })
+      //não queria relamente excluir o cliente
+    } else {
+      swalWithBootstrapButtons.fire({
+        title: "Cancelado",
+        text: "O cliente NÃO foi excluído",
+        icon: "error"
       })
-      getCustomers()
-    })
+    }
+  })
 }
 
 const customerPhoto = (photo) => {
